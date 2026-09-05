@@ -27,7 +27,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #ffffff;
+  background: hsla(200, 27%, 98%, 1);
 }
 
 .page-shell {
@@ -35,7 +35,7 @@ defineProps({
   height: 889px;
   display: flex;
   flex-direction: column;
-  background: #ffffff;
+  background: hsla(200, 27%, 98%, 1);
   overflow: hidden;
 }
 

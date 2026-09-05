@@ -44,6 +44,7 @@ function handleClick(event) {
 
 <style scoped>
 .btn {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;

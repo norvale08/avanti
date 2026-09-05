@@ -52,9 +52,7 @@ const props = defineProps({
       </nav>
     </div>
     <AvantiButton variant="primary" class="support-btn">
-      <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 18a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 18a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
-      </svg>
+      <img class="btn-icon" src="/Chat%20icon.png" alt="Assistenza" />
       ASSISTENZA
       <span class="badge">4</span>
     </AvantiButton>
@@ -162,24 +160,44 @@ const props = defineProps({
   height: 18px;
 }
 
-.support-btn {
+.btn.support-btn {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 156px;
+  height: 39px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: hsla(191, 65%, 40%, 1);
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: hsla(0, 0%, 100%, 1);
 }
 
 .btn-icon {
   width: 18px;
   height: 18px;
+  object-fit: contain;
+  display: block;
 }
 
 .badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
-  width: 18px;
-  height: 18px;
-  background: #e74c3c;
+  top: -6px;
+  right: -6px;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  background: hsla(0, 84%, 60%, 1);
+  border: 2px solid hsla(0, 0%, 100%, 1);
   color: #fff;
-  border-radius: 50%;
+  border-radius: 11px;
   font-size: 10px;
   font-weight: 700;
   display: flex;

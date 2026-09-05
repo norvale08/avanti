@@ -79,7 +79,7 @@ defineProps({
   font-weight: 600;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: hsla(217, 32%, 15%, 1);
 }
 
@@ -89,7 +89,7 @@ defineProps({
   font-weight: 400;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: hsla(240, 4%, 46%, 1);
 }
 
@@ -101,7 +101,7 @@ defineProps({
   font-weight: 500;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: hsla(240, 4%, 46%, 1);
 }
 
@@ -112,7 +112,7 @@ defineProps({
   font-weight: 500;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: hsla(240, 5%, 65%, 1);
 }
 
@@ -122,7 +122,7 @@ defineProps({
   font-weight: 600;
   font-style: normal;
   line-height: 100%;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   color: hsla(217, 32%, 15%, 1);
 }
 

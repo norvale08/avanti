@@ -47,7 +47,7 @@ defineProps({
   height: 60px;
   background: hsla(200, 27%, 98%, 1);
   border: none;
-  padding: 10px 32px;
+  padding: 10px 0px;
   box-sizing: border-box;
 }
 

@@ -47,7 +47,7 @@ const steps = [
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
           </svg>
           <svg v-else class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+            <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
           </svg>
         </div>
         <span class="step-label">{{ step.label }}</span>
@@ -58,18 +58,45 @@ const steps = [
 
 <style scoped>
 .tracker-card {
-  background: #ffffff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 792px;
+  height: 130px;
+  padding: 20px 24px;
+  gap: 16px;
   border-radius: 16px;
-  padding: 18px 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid hsla(193, 32%, 91%, 1);
+  background: hsla(0, 0%, 100%, 1);
+  box-shadow: 0px 2px 8px 0px hsla(217, 32%, 15%, 0.06);
 }
 
 .tracker-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 18px;
+  align-items: center;
   font-size: 13px;
   color: #666666;
+}
+
+.step-title {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(217, 32%, 15%, 1);
+}
+
+.step-count {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(240, 4%, 46%, 1);
 }
 
 .tracker-steps {
@@ -86,7 +113,7 @@ const steps = [
   left: 18px;
   right: 18px;
   height: 2px;
-  background: linear-gradient(to right, #00808c v-bind(progressPercent), #e6e6e6 v-bind(progressPercent));
+  background: linear-gradient(to right, hsla(191, 65%, 40%, 1) v-bind(progressPercent), #e6e6e6 v-bind(progressPercent));
   z-index: 0;
 }
 
@@ -99,9 +126,10 @@ const steps = [
 }
 
 .step-icon {
+  box-sizing: border-box;
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: 18px;
   border: 2px solid #cccccc;
   background: #ffffff;
   display: flex;
@@ -116,21 +144,21 @@ const steps = [
 }
 
 .step-item.completed .step-icon {
-  background: #00808c;
-  border-color: #00808c;
+  background: hsla(191, 65%, 40%, 1);
+  border-color: hsla(191, 65%, 40%, 1);
   color: #ffffff;
 }
 
 .step-item.active .step-icon {
-  border-color: #00808c;
-  color: #00808c;
-  background: #ffffff;
+  border: 2px solid hsla(191, 65%, 40%, 1);
+  color: hsla(191, 65%, 40%, 1);
+  background: hsla(190, 40%, 94%, 1);
 }
 
 .step-item.pending .step-icon {
-  background: #f5f5f5;
-  border-color: #cccccc;
-  color: #bbbbbb;
+  background: hsla(240, 5%, 96%, 1);
+  border: 1.5px solid hsla(240, 5%, 84%, 1);
+  color: hsla(240, 5%, 65%, 1);
 }
 
 .step-label {
@@ -140,7 +168,7 @@ const steps = [
 
 .step-item.completed .step-label,
 .step-item.active .step-label {
-  color: #00808c;
+  color: hsla(191, 65%, 40%, 1);
   font-weight: 600;
 }
 

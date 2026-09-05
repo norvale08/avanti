@@ -50,42 +50,69 @@ const gridColumns = computed(() => `repeat(${props.columns}, 1fr)`)
 
 <style scoped>
 .profile-card {
-  background: #ffffff;
+  box-sizing: border-box;
+  width: 464px;
+  height: 131px;
+  padding: 24px;
   border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid hsla(240, 6%, 90%, 1);
+  background: hsla(0, 0%, 100%, 1);
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.card-header :deep(.btn) {
+  border: none;
 }
 
 h3 {
-  font-size: 16px;
-  font-weight: 700;
+  font-family: Inter, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(217, 32%, 15%, 1);
   margin: 0;
 }
 
 .info-grid {
   display: grid;
   grid-template-columns: v-bind(gridColumns);
-  gap: 16px 12px;
+  gap: 16px;
   font-size: 13px;
 }
 
+.info-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  justify-content: space-between
+}
+
 .info-item label {
-  display: block;
-  color: #888888;
-  font-size: 11px;
-  margin-bottom: 4px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(240, 4%, 46%, 1);
 }
 
 .info-item span {
-  color: #333333;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
   font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(217, 32%, 15%, 1);
 }
 
 @media (max-width: 640px) {

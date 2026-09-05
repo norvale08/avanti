@@ -1,6 +1,4 @@
 <script setup>
-import AvantiButton from './avanti_button.vue'
-
 defineProps({
   title: {
     type: String,
@@ -46,36 +44,42 @@ const emit = defineEmits(['action'])
       </div>
     </div>
 
-    <AvantiButton variant="action" class="checklist-action" @click="emit('action')">→</AvantiButton>
+    <button class="checklist-action" @click="emit('action')">
+      <img src="/Arrow%20icon.png" alt="Arrow" />
+    </button>
   </section>
 </template>
 
 <style scoped>
 .checklist-card {
+  box-sizing: border-box;
   display: flex;
-  align-items: center;
   gap: 16px;
-  background: #ffffff;
+  width: 792px;
+  height: 124px;
+  padding: 16px 20px;
   border-radius: 16px;
-  padding: 18px 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid hsla(192, 45%, 85%, 1);
+  background: hsla(190, 40%, 94%, 1);
 }
 
 .checklist-icon {
+  box-sizing: border-box;
   width: 44px;
   height: 44px;
-  border-radius: 50%;
-  background: #00808c;
-  color: #ffffff;
+  border-radius: 22px;
+  background: hsla(191, 65%, 40%, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  box-shadow: 0px 4px 8px 0px hsla(191, 65%, 40%, 0.19);
 }
 
-.checklist-icon :slotted(svg) {
+.checklist-icon :slotted(img) {
   width: 22px;
   height: 22px;
+  object-fit: contain;
 }
 
 .checklist-body {
@@ -91,25 +95,45 @@ const emit = defineEmits(['action'])
 }
 
 .checklist-title {
+  font-family: Geist, sans-serif;
   font-size: 13px;
-  font-weight: 700;
-  color: #333333;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(217, 32%, 15%, 1);
 }
 
 .checklist-subtitle {
-  font-size: 11px;
-  color: #666666;
-  margin-top: 2px;
+  font-family: Geist, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(240, 4%, 46%, 1);
+  margin-top: 6px;
 }
 
 .checklist-progress {
-  background: #00808c;
-  color: #ffffff;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 10px;
+  box-sizing: border-box;
+  width: 126px;
+  height: 22px;
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: hsla(191, 65%, 40%, 1);
+  font-family: Geist, sans-serif;
+  font-size: 11px;
   font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: hsla(0, 0%, 100%, 1);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .checklist-items {
@@ -122,24 +146,47 @@ const emit = defineEmits(['action'])
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  color: #444444;
+  font-family: Geist, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(217, 32%, 15%, 1);
   cursor: not-allowed;
 }
 
 .check-item input {
-  width: 14px;
-  height: 14px;
-  accent-color: #00808c;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: hsla(0, 0%, 100%, 1);
+  border: 1px solid hsla(191, 65%, 40%, 1);
+  accent-color: hsla(191, 65%, 40%, 1);
+  appearance: none;
 }
 
 .checklist-action {
+  box-sizing: border-box;
   width: 36px;
   height: 36px;
   min-width: 36px;
-  padding: 0 !important;
-  border-radius: 50% !important;
-  font-size: 16px !important;
+  padding: 0;
+  border-radius: 18px;
+  background: hsla(191, 65%, 40%, 1);
+  box-shadow: 0px 4px 8px 0px hsla(191, 65%, 40%, 0.25);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checklist-action img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
 }
 
 @media (max-width: 640px) {

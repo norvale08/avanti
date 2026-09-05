@@ -48,20 +48,34 @@ const emit = defineEmits(['action'])
 
     <AvantiButton variant="secondary" :full-width="true" class="withdraw-btn" @click="emit('action')">
       <slot name="icon" />
-      {{ buttonText }}
+      <span class="btn-text">{{ buttonText }}</span>
       <span class="arrow">→</span>
     </AvantiButton>
 
-    <p v-if="note" class="banner-note">{{ note }}</p>
+    <div v-if="note" class="banner-note">
+      <span class="note-line"></span>
+      <span class="note-text">{{ note }}</span>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .banner-card {
-  background: linear-gradient(135deg, #00808c 0%, #1a6b77 100%);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 792px;
+  height: 340px;
+  padding: 32px;
+  gap: 16px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #2491AA 0%, #1A7488 100%);
   color: #ffffff;
-  border-radius: 16px;
-  padding: 28px;
+  box-shadow: 0px 8px 24px 0px hsla(191, 65%, 40%, 0.19);
+}
+
+.banner-card > * {
+  margin: 0;
 }
 
 .banner-header {
@@ -72,52 +86,118 @@ const emit = defineEmits(['action'])
 }
 
 .banner-tag {
-  font-size: 11px;
-  opacity: 0.85;
-  letter-spacing: 0.5px;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: hsla(190, 40%, 94%, 1);
 }
 
 .banner-pill {
-  background: rgba(255, 255, 255, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 21px;
   padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 10px;
-  font-weight: 600;
+  border-radius: 99px;
+  background: hsla(0, 0%, 100%, 0.2);
+  font-family: Inter, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(0, 0%, 100%, 1);
 }
 
 .banner-subtitle {
-  font-size: 12px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
   font-weight: 600;
-  opacity: 0.9;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: hsla(190, 40%, 94%, 1);
 }
 
 .banner-amount {
-  font-size: 44px;
-  font-weight: 800;
-  margin: 16px 0 6px;
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 63px;
+  font-family: Inter, sans-serif;
+  font-size: 52px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: -0.015em;
+  color: hsla(0, 0%, 100%, 1);
+  white-space: nowrap;
 }
 
 .banner-rate {
-  font-size: 13px;
-  margin-bottom: 20px;
-  opacity: 0.9;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(190, 40%, 94%, 1);
 }
 
 .withdraw-btn {
-  background: rgba(255, 255, 255, 0.5) !important;
-  color: #00808c !important;
-  font-size: 15px !important;
+  background: hsla(0, 0%, 100%, 0.5) !important;
+  border: none !important;
+  color: transparent !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 100% !important;
+  letter-spacing: 0.002em !important;
   padding: 14px !important;
+}
+
+.btn-text {
+  background: linear-gradient(180deg, #2491AA 0%, #1A7488 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .arrow {
   margin-left: 4px;
+  color: #2491AA;
 }
 
 .banner-note {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 11px;
-  text-align: center;
-  margin: 16px 0 0;
-  opacity: 0.75;
+}
+
+.note-line {
+  box-sizing: border-box;
+  width: 100px;
+  height: 0;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.31);
+}
+
+.note-text {
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: hsla(190, 40%, 94%, 1);
+  opacity: 1;
 }
 </style>

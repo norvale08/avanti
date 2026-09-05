@@ -51,9 +51,7 @@ const checklistItems = ['Documenti', 'Firma']
           @action="handleWithdraw"
         >
           <template #icon>
-            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M3 21h18"/><path d="M5 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/>
-            </svg>
+            <img class="btn-icon" src="/Bank%20icon.png" alt="Bank" />
           </template>
         </AvantiBannerCard>
 
@@ -65,9 +63,7 @@ const checklistItems = ['Documenti', 'Firma']
           @action="handleChecklistAction"
         >
           <template #icon>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
-            </svg>
+            <img class="checklist-icon-img" src="/Padlock%20icon.png" alt="Padlock" />
           </template>
         </AvantiChecklistCard>
       </div>
@@ -91,19 +87,28 @@ const checklistItems = ['Documenti', 'Firma']
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  max-width: 1288px;
+  align-self: center;
 }
 
 .grid-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 20px;
+  grid-template-columns: 792px 464px;
+  gap: 32px;
+  justify-content: space-between;
 }
 
 .left-column,
 .right-column {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.right-column {
+  width: 464px;
+  height: 646px;
 }
 
 .btn-icon {

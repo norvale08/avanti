@@ -73,10 +73,10 @@ const props = defineProps({
 
 .header-inner {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1288px;
   height: 100%;
   margin: 0 auto;
-  padding: 16px 32px;
+  padding: 16px 0;
   box-sizing: border-box;
 }
 

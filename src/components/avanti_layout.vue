@@ -30,13 +30,11 @@ import AvantiChatFab from './avanti_chat_fab.vue'
 .page-shell {
   width: 100%;
   max-width: 1440px;
-  min-height: 100vh;
-  height: auto;
+  flex: 1;
   display: flex;
   flex-direction: column;
   background: hsla(200, 27%, 98%, 1);
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 .page-content {
@@ -46,21 +44,12 @@ import AvantiChatFab from './avanti_chat_fab.vue'
   flex-direction: column;
   gap: 20px;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 @media (max-width: 900px) {
-  .page-shell {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-  }
-
   .page-content {
     padding: 16px;
     gap: 16px;
-    overflow-y: auto;
   }
 }
 
@@ -69,15 +58,15 @@ import AvantiChatFab from './avanti_chat_fab.vue'
   margin: 0;
   background: #ffffff;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+:global(::-webkit-scrollbar) {
+  display: none;
 }
 
 @media (max-width: 900px) {
-  :global(html),
-  :global(body) {
-    overflow-y: auto;
-  }
-
   .page-content {
     padding-bottom: 90px;
   }

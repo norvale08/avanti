@@ -61,7 +61,8 @@ const steps = [
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 792px;
+  width: 100%;
+  max-width: 792px;
   height: 130px;
   padding: 20px 24px;
   gap: 16px;
@@ -174,5 +175,52 @@ const steps = [
 
 .step-item.pending .step-label {
   color: #bbbbbb;
+}
+
+@media (max-width: 900px) {
+  .tracker-card {
+    width: 100%;
+    height: auto;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .tracker-header {
+    margin-bottom: 4px;
+  }
+
+  .tracker-steps {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .tracker-steps::before {
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    height: 2px;
+  }
+
+  .step-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .step-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+  }
+
+  .icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .step-label {
+    font-size: 11px;
+    text-align: center;
+  }
 }
 </style>

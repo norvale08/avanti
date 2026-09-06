@@ -8,6 +8,18 @@ const props = defineProps({
   activeLink: {
     type: String,
     default: 'Home'
+  },
+  avatar: {
+    type: String,
+    default: '/avatar.png'
+  },
+  initials: {
+    type: String,
+    default: 'MR'
+  },
+  bellBadge: {
+    type: [String, Number],
+    default: 4
   }
 })
 </script>
@@ -30,6 +42,17 @@ const props = defineProps({
         </svg>
         <span class="logo-text">Avanti</span>
       </div>
+
+      <div class="mobile-actions">
+        <div class="bell-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+          </svg>
+          <span class="bell-badge" v-if="bellBadge">{{ bellBadge }}</span>
+        </div>
+        <img class="mobile-avatar" :src="avatar" alt="Profile" />
+        <span class="mobile-initials">{{ initials }}</span>
+      </div>
       <nav class="nav-links">
         <a class="nav-link" :class="{ active: props.activeLink === 'Home' }">
           <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -51,11 +74,13 @@ const props = defineProps({
         </a>
       </nav>
     </div>
-    <AvantiButton variant="primary" class="support-btn">
-      <img class="btn-icon" src="/Chat%20icon.png" alt="Assistenza" />
-      ASSISTENZA
-      <span class="badge">4</span>
-    </AvantiButton>
+    <div class="desktop-support">
+      <AvantiButton variant="primary">
+        <img class="btn-icon" src="/Chat%20icon.png" alt="Assistenza" />
+        ASSISTENZA
+        <span class="badge">4</span>
+      </AvantiButton>
+    </div>
       </div>
     </div>
   </header>
@@ -126,33 +151,38 @@ const props = defineProps({
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   width: 660px;
   height: 38px;
   font-size: 14px;
 }
 
 .nav-link {
+  box-sizing: border-box;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex: 0 0 210.67px;
+  gap: 20px;
+  flex: 0 0 212.66665649414062px;
   height: 38px;
-  padding: 0;
-  border-radius: 12px;
-  background: #f8f9fa;
-  color: #5a5a5a;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: hsla(200, 27%, 98%, 1);
+  color: hsla(217, 32%, 15%, 1);
   cursor: pointer;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0;
   transition: background 0.2s ease;
-  border: 1px solid transparent;
+  border: 1px solid hsla(190, 40%, 94%, 1);
 }
 
 .nav-link.active {
-  color: #00808c;
-  background: #e8f4f6;
-  border-color: #d0eaef;
+  flex: 0 0 210.6666717529297px;
+  color: hsla(191, 65%, 40%, 1);
+  background: hsla(190, 40%, 94%, 1);
+  border-color: transparent;
 }
 
 .nav-icon {
@@ -160,7 +190,12 @@ const props = defineProps({
   height: 18px;
 }
 
-.btn.support-btn {
+.desktop-support {
+  display: flex;
+  align-items: center;
+}
+
+.desktop-support .btn {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -178,6 +213,53 @@ const props = defineProps({
   letter-spacing: 0;
   text-transform: uppercase;
   color: hsla(0, 0%, 100%, 1);
+}
+
+.mobile-actions {
+  display: none;
+  align-items: center;
+  gap: 12px;
+}
+
+.bell-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  color: hsla(217, 32%, 15%, 1);
+}
+
+.bell-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: hsla(0, 84%, 60%, 1);
+  border: 2px solid hsla(0, 0%, 100%, 1);
+  color: hsla(0, 0%, 100%, 1);
+  font-family: Inter, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid hsla(191, 65%, 40%, 1);
+}
+
+.mobile-initials {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: hsla(217, 32%, 15%, 1);
 }
 
 .btn-icon {
@@ -207,50 +289,77 @@ const props = defineProps({
 
 @media (max-width: 900px) {
   .app-header {
-    height: auto;
-    min-height: 111px;
+    box-sizing: border-box;
+    height: 62px;
+    min-height: 62px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
   }
 
   .header-inner {
-    height: auto;
-    padding: 12px 16px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
   }
 
   .top-nav {
-    flex-wrap: wrap;
-    height: auto;
-    gap: 12px;
+    flex-wrap: nowrap;
+    height: 100%;
+    gap: 0;
   }
 
   .nav-left {
     width: 100%;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
+    height: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+  }
+
+  .nav-links,
+  .desktop-support {
+    display: none;
+  }
+
+  .mobile-actions {
+    display: flex;
+    align-items: center;
     gap: 12px;
-  }
-
-  .nav-links {
-    width: 100%;
-    height: auto;
-    justify-content: center;
-  }
-
-  .nav-link {
-    flex: 1 1 auto;
+    height: 38px;
   }
 
   .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     width: auto;
-    height: auto;
+    height: 29px;
   }
 
   .logo-icon {
-    height: 32px;
+    height: 29px;
+    width: auto;
   }
 
   .logo-text {
-    font-size: 24px;
+    font-size: 21px;
+    letter-spacing: -0.03em;
+  }
+
+  .bell-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .mobile-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobile-initials {
+    font-size: 13px;
   }
 }
 </style>

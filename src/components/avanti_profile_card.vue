@@ -51,7 +51,7 @@ const gridColumns = computed(() => `repeat(${props.columns}, 1fr)`)
 <style scoped>
 .profile-card {
   box-sizing: border-box;
-  width: 464px;
+  width: 100%;
   height: 131px;
   padding: 24px;
   border-radius: 16px;
@@ -115,15 +115,11 @@ h3 {
   color: hsla(217, 32%, 15%, 1);
 }
 
-@media (max-width: 640px) {
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+@media (max-width: 900px) {
+  .profile-card {
+    display: none;
+    width: 100%;
+    max-width: 100%;
   }
 }
 </style>

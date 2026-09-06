@@ -126,12 +126,9 @@ defineProps({
   color: hsla(217, 32%, 15%, 1);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   .profile-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-    gap: 10px;
+    display: none;
   }
 }
 </style>

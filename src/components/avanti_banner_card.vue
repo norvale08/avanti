@@ -64,7 +64,8 @@ const emit = defineEmits(['action'])
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  width: 792px;
+  width: 100%;
+  max-width: 792px;
   height: 340px;
   padding: 32px;
   gap: 16px;
@@ -199,5 +200,42 @@ const emit = defineEmits(['action'])
   letter-spacing: 0;
   color: hsla(190, 40%, 94%, 1);
   opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .banner-card {
+    width: 100%;
+    height: auto;
+    padding: 24px;
+  }
+
+  .banner-amount {
+    font-size: 36px;
+    width: auto;
+    height: auto;
+  }
+
+  .banner-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .banner-subtitle {
+    font-size: 14px;
+    max-width: 180px;
+  }
+
+  .banner-tag {
+    text-transform: none;
+  }
+
+  .banner-pill {
+    width: auto;
+  }
+
+  .note-line {
+    display: none;
+  }
 }
 </style>

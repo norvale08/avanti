@@ -14,7 +14,7 @@ const totalCount = stepsList.length
 <template>
   <div class="list-card">
     <div class="list-header">
-      <div>
+      <div class="list-text">
         <div class="list-title">COMPLETA TUTTI GLI STEP</div>
         <div class="list-subtitle">Per il prelievo dei fondi, completa tutti gli step</div>
       </div>
@@ -81,7 +81,8 @@ const totalCount = stepsList.length
 <style scoped>
 .list-card {
   box-sizing: border-box;
-  width: 464px;
+  width: 100%;
+  max-width: 464px;
   height: 483px;
   padding: 18px;
   border-radius: 16px;
@@ -119,6 +120,12 @@ const totalCount = stepsList.length
   margin-top: 10px;
 }
 
+.list-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
 .list-toggle {
   box-sizing: border-box;
   width: 32px;
@@ -130,6 +137,7 @@ const totalCount = stepsList.length
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .list-toggle svg {
@@ -293,5 +301,67 @@ const totalCount = stepsList.length
 
 .progress-segment.active {
   background: linear-gradient(90deg, #2491AA 0%, #E4E4E7 100%);
+}
+
+@media (max-width: 900px) {
+  .list-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 16px;
+  }
+
+  .list-header {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .list-title,
+  .list-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .list-row {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .row-left {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .row-info {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .row-name,
+  .row-status {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .row-badge {
+    align-self: center;
+    flex-shrink: 0;
+  }
+
+  .progress-track {
+    width: 100%;
+    height: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .progress-segment {
+    flex: 1 0 auto;
+    width: auto;
+    min-width: 0;
+  }
 }
 </style>

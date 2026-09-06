@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+import { computed } from 'vue'
+
+const props = defineProps({
   title: {
     type: String,
     default: ''
@@ -18,6 +20,11 @@ defineProps({
   }
 })
 
+const shortProgress = computed(() => {
+  const parts = props.progressText.split(' ')
+  return parts.slice(0, 3).join(' ')
+})
+
 const emit = defineEmits(['action'])
 </script>
 
@@ -33,7 +40,7 @@ const emit = defineEmits(['action'])
           <div class="checklist-title">{{ title }}</div>
           <div class="checklist-subtitle">{{ subtitle }}</div>
         </div>
-        <div class="checklist-progress">{{ progressText }}</div>
+        <div class="checklist-progress progress-desktop">{{ progressText }}</div>
       </div>
 
       <div class="checklist-items">
@@ -41,6 +48,9 @@ const emit = defineEmits(['action'])
           <input type="checkbox" disabled />
           <span>{{ item }}</span>
         </label>
+        <div class="checklist-progress-row progress-mobile">
+          <div class="checklist-progress">{{ shortProgress }}</div>
+        </div>
       </div>
     </div>
 
@@ -55,7 +65,8 @@ const emit = defineEmits(['action'])
   box-sizing: border-box;
   display: flex;
   gap: 16px;
-  width: 792px;
+  width: 100%;
+  max-width: 792px;
   height: 124px;
   padding: 16px 20px;
   border-radius: 16px;
@@ -181,6 +192,7 @@ const emit = defineEmits(['action'])
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  align-self: center;
 }
 
 .checklist-action img {
@@ -189,14 +201,72 @@ const emit = defineEmits(['action'])
   object-fit: contain;
 }
 
-@media (max-width: 640px) {
+.progress-mobile,
+.checklist-progress-row {
+  display: none;
+}
+
+@media (max-width: 900px) {
   .checklist-card {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
     align-items: flex-start;
+    padding: 16px;
+  }
+
+  .checklist-items {
+    position: relative;
+  }
+
+  .checklist-progress-row {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    margin-top: 0;
+    justify-content: flex-end;
+  }
+
+  .checklist-icon {
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+
+  .checklist-body {
+    flex: 1;
+    min-width: 0;
   }
 
   .checklist-title-row {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
     gap: 8px;
+  }
+
+  .checklist-title {
+    word-break: break-word;
+  }
+
+  .checklist-progress {
+    width: auto;
+    flex-shrink: 0;
+    align-self: flex-start;
+  }
+
+  .progress-desktop {
+    display: none;
+  }
+
+  .progress-mobile,
+  .checklist-progress-row {
+    display: flex;
+  }
+
+
+  .checklist-action {
+    display: none;
   }
 }
 </style>

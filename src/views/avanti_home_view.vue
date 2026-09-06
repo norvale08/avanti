@@ -41,7 +41,7 @@ const checklistItems = ['Documenti', 'Firma']
         <AvantiProgressTracker :current-step="4" :total-steps="5" />
 
         <AvantiBannerCard
-          tag="IL TUO SALDO"
+          tag="Il tuo saldo"
           pill="Completa i passaggi"
           subtitle="IMPORTO APPROVATO DAI NOSTRI PARTNER"
           amount="€ 12 000"
@@ -93,7 +93,7 @@ const checklistItems = ['Documenti', 'Firma']
 
 .grid-layout {
   display: grid;
-  grid-template-columns: 792px 464px;
+  grid-template-columns: minmax(0, 792px) minmax(0, 464px);
   gap: 32px;
   justify-content: space-between;
 }
@@ -111,14 +111,47 @@ const checklistItems = ['Documenti', 'Firma']
   height: 646px;
 }
 
+@media (max-width: 900px) {
+  :deep(.profile-bar) {
+    display: none;
+  }
+}
+
 .btn-icon {
   width: 18px;
   height: 18px;
 }
 
 @media (max-width: 900px) {
+  .home-layout {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
   .grid-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+    align-items: center;
+  }
+
+  .right-column {
+    height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-layout {
+    gap: 20px;
+  }
+
+  .left-column,
+  .right-column {
+    gap: 20px;
   }
 }
 </style>

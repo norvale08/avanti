@@ -1,12 +1,12 @@
 <template>
   <div class="page-layout">
-    <AvantiHeader :active-link="activeNav" />
+    <AvantiHeader />
     <div class="page-shell">
       <main class="page-content">
         <slot />
       </main>
     </div>
-    <AvantiMobileNav class="mobile-nav-bar" :active-link="activeNav" />
+    <AvantiMobileNav class="mobile-nav-bar" />
     <AvantiChatFab class="mobile-chat-fab" />
   </div>
 </template>
@@ -15,13 +15,6 @@
 import AvantiHeader from './avanti_header.vue'
 import AvantiMobileNav from './avanti_mobile_nav.vue'
 import AvantiChatFab from './avanti_chat_fab.vue'
-
-defineProps({
-  activeNav: {
-    type: String,
-    default: 'Home'
-  }
-})
 </script>
 
 <style scoped>
